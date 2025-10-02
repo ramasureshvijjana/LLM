@@ -17,6 +17,57 @@ Perplexity is an LLM evaluation metric that explains how confused a model is whe
 👉 **Higher perplexity = more confused, less accurate predictions**
 
 ---
-## Perplexity Formula
+## Maths in Perplexity
+
+### 📌 Step 1: Perplexity Formula  
+
+For a sentence (sequence of words), perplexity (PP) is:
+
+$$
+PP(W) = \exp\left(-\frac{1}{N} \sum_{i=1}^N \log P(w_i | w_1,...,w_{i-1}) \right)
+$$
+Or, if using base 2 logarithm:
+$$
+PP(W) = 2^\left(-\frac{1}{N} \sum_{i=1}^N \log P(w_i | w_1,...,w_{i-1}) \right)
+$$
+
+where:
+- **N** = number of words in the sentence  
+- **P(wi | previous words)** = probability given by the model  
+
+
+
+### 📌 Step 2: Simple Example  
+
+Suppose our sentence has **3 words**:  
+**"the cat sleeps"**  
+
+And the model assigns these probabilities:  
+
+- P(the) = 0.5  
+- P(cat | the) = 0.25  
+- P(sleeps | the cat) = 0.125  
+
+### Step 3: average log probability  
+
+$$
+\frac{1}{N} \sum_{i=1}^N \log_2 P(w_i)
+$$
+
+$$
+= \frac{1}{3}\Big(\log_2 0.5 + \log_2 0.25 + \log_2 0.125 \Big)
+$$
+
+$$
+= \frac{1}{3}(1 + 2 + 3) = \frac{6}{3} = 2
+$$
+
+### Step 5: Perplexity  
+
+Perplexity is:
+
+$$
+PP = 2^2 = 4
+$$
 
 ---
