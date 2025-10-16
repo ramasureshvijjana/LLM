@@ -40,7 +40,30 @@ $$
 - **F1 Score:** Harmonic mean of precision and recall, **balancing both Precision and Recall for overall quality**.  
 
 ## ROUGE Variants:
-1. 
+1. ROUGE-N
+2. ROUGE-L
+3. ROUGE-W
+4. ROUGE-S
+5. ROUGE-Lsum
+
+## ROUGE-N: 
+- Measures n-gram overlap (e.g., ROUGE-1 for unigrams, ROUGE-2 for bigrams).
+
+## 🧠 Example: ROUGE-1
+
+**Reference Text**:  `The cat sat on the mat.` &emsp;&emsp; **Generated Text**:  `The cat lay on the rug.`
+
+### Unigrams (words):
+- Reference: `the`, `cat`, `sat`, `on`, `the`, `mat`
+- Generated: `the`, `cat`, `lay`, `on`, `the`, `rug`
+
+**Overlap:** `the`, `cat`, `on`, `the` → 4 overlapping unigrams
+
+### Metrics:
+- **Precision** = Overlap / Generated = `4 / 6 = 0.67`  
+- **Recall** = Overlap / Reference = `4 / 6 = 0.67`  
+- **F1 Score** = Harmonic mean of precision and recall = `0.67`
+
 ---
 
 # 13.3 Perplexity
