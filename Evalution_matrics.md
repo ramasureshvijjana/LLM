@@ -39,6 +39,8 @@ $$
 - **Recall:** Measures how much of the **reference content is captured by the generated text**.  
 - **F1 Score:** Harmonic mean of precision and recall, **balancing both Precision and Recall for overall quality**.  
 
+## ROUGE Variants:
+1. 
 ---
 
 # 13.3 Perplexity
