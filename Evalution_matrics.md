@@ -37,7 +37,13 @@ $$
 
 - **Precision:** Measures how much of the generated content is **relevant**.  
 - **Recall:** Measures how much of the **reference content is captured by the generated text**.  
-- **F1 Score:** Harmonic mean of precision and recall, **balancing both Precision and Recall for overall quality**.  
+- **F1 Score:** Harmonic mean of precision and recall, **balancing both Precision and Recall for overall quality**.
+
+$$
+F = \frac{(1 + \beta^2) \times P \times R}{ \beta^2 \times P + R}
+$$
+
+where β = 1 (equal weight to precision & recall)
 
 ## ROUGE Variants:
 1. ROUGE-N
@@ -83,8 +89,9 @@ $$
 
 | Formula | Meaning | Calculation |
 |----------|----------|-------------|
-| Recall (R) = LCS / length of reference | How much of reference is covered | 4 / 6 = **0.6667** |
 | Precision (P) = LCS / length of generated | How much of generated matches | 4 / 7 = **0.5714** |
+| Recall (R) = LCS / length of reference | How much of reference is covered | 4 / 6 = **0.6667** |
+
 
 #### Step 3: Compute F-measure (ROUGE-L Score)
 
