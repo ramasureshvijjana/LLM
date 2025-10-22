@@ -29,7 +29,7 @@ BP = \exp \left( 1 - \frac{\text{Reference length}}{\text{Generated length}} \ri
 $$
 
 ---
-# 13.2 ROUGE
+# 13.2 ROUGE - (Recall-Oriented Understudy for Gisting Evaluation)
 
 - ROUGE score evaluates the **quality of generated text by comparing it to reference texts using overlap of *n-grams, word sequences, and word pairs***.
 
@@ -49,7 +49,7 @@ $$
 ## ROUGE-N: 
 - Measures n-gram overlap (e.g., ROUGE-1 for unigrams, ROUGE-2 for bigrams).
 
-## 🧠 Example: ROUGE-1
+## 📘 Example: ROUGE-1
 
 **Reference Text**:  `The cat sat on the mat.` &emsp;&emsp; **Generated Text**:  `The cat lay on the rug.`
 
@@ -63,6 +63,42 @@ $$
 - **Precision** = Overlap / Generated = `4 / 6 = 0.67`  
 - **Recall** = Overlap / Reference = `4 / 6 = 0.67`  
 - **F1 Score** = Harmonic mean of precision and recall = `0.67`
+
+## 🧠 ROUGE-L:
+✅ **L - (Longest Common Subsequence)**  
+✅ measures how much the **generated text** overlaps with the **reference text** based on the **Longest Common Subsequence (LCS)**.  
+✅ It focuses on the **order of words** (not just matching words).  
+
+## 📘 Example
+
+- **Reference (correct answer):**  `The cat sat on the mat`
+**Generated (model output):** `The cat is sitting on the mat`
+
+#### Step 1: Find Longest Common Subsequence (LCS)
+- Longest sequence of words appearing in both sentences in the **same order**:
+
+- **LCS =** “The cat on the mat”  → LCS length = **4**
+
+#### Step 2: Compute Precision and Recall
+
+| Formula | Meaning | Calculation |
+|----------|----------|-------------|
+| Recall (R) = LCS / length of reference | How much of reference is covered | 4 / 6 = **0.6667** |
+| Precision (P) = LCS / length of generated | How much of generated matches | 4 / 7 = **0.5714** |
+
+#### Step 3: Compute F-measure (ROUGE-L Score)
+
+$$
+F = \frac{(1 + \beta^2) \times P \times R}{ \beta^2 \times P + R}
+$$
+
+where β = 1 (equal weight to precision & recall)
+
+$$
+F = \frac{2 \times 0.5714 \times 0.6667}{0.5714 + 0.6667} = 0.615
+$$
+
+✅ **ROUGE-L = 0.615 (or 61.5%)**
 
 ---
 
