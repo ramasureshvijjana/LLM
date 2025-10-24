@@ -49,7 +49,7 @@ where β = 1 (equal weight to precision & recall)
 1. ROUGE-N
 2. ROUGE-L
 3. ROUGE-W
-4. [ROUGE-S](https://github.com/ramasureshvijjana/LLM/edit/master/Evalution_matrics.md#-rouge-s)
+4. [ROUGE-S](https://github.com/ramasureshvijjana/LLM/blob/master/Evalution_matrics.md#-rouge-s)
 5. ROUGE-Lsum
 
 ## ROUGE-N: 
@@ -146,8 +146,8 @@ $$
 
 ### Step 2: Compute Recall and Precision
 
-| Formula | Meaning | Calculation |
-|----------|----------|-------------|
+| Formula |  Calculation |
+|----------| -------------|
 | Precision (P) = matching / total in generated | 10 / 20 = **0.5** |
 | Recall (R) = matching / total in reference | 10 / 15 = **0.6667** |
 
@@ -163,22 +163,6 @@ F = \frac{2 \times 0.5 \times 0.6667}{0.5 + 0.6667} = 0.5714
 $$
 
 ✅ **ROUGE-S = 0.571 (or 57.1%)**
-
----
-
-## 🧩 Summary
-
-| Metric | Meaning | Value |
-|---------|----------|-------|
-| Total skip-bigrams (ref) | Word pairs in reference | 15 |
-| Total skip-bigrams (gen) | Word pairs in output | 20 |
-| Matching skip-bigrams | Common pairs | 10 |
-| Recall | Portion of reference covered | 0.667 |
-| Precision | Portion of generated matches | 0.5 |
-| **ROUGE-S Score** | F1 of precision & recall | **0.571** |
-
-
-
 
 ---
 
