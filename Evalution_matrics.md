@@ -107,6 +107,57 @@ $$
 
 ✅ **ROUGE-L = 0.615 (or 61.5%)**
 
+## 🧠 ROUGE-W
+
+**ROUGE-W (Weighted Longest Common Subsequence)**  is a **improved version of ROUGE-L** 
+
+✅ **ROUGE-L** → counts any common subsequence  
+✅ **ROUGE-W** → rewards **longer continuous sequences** more strongly
+
+## 📘 Example
+
+**Reference:** `The cat sat on the mat` ; **Generated:**  `The cat is sitting on the mat`
+
+### Step 1: Find Common Subsequences
+
+- “The cat” ✅ consecutive match (2 words)
+- “on the mat” ✅ consecutive match (3 words)
+
+### Step 2: Weighted Longest Common Subsequence
+
+- ROUGE-W uses a **weighting factor (usually w = 1.2 or 1.5)** to make **longer continuous matches more valuable**.
+
+The LCS is **weighted** as:
+
+$$
+\text{Weighted LCS} = \sum (\text{segment length})^w
+$$
+
+If we use **w = 1.2**:
+
+$$
+LCS = 2^{1.2} + 3^{1.2} = 2.297 + 3.737 = 6.034
+$$
+
+### Step 3: Compute Recall and Precision
+
+| Metric | Formula | Calculation |
+|---------|----------|-------------|
+| Precision (P) | LCS / Generated | 6.034 / 7 = **0.862** |
+| Recall (R) | LCS / Reference | 6.034 / 6 = **1.0056** (≈ 1.0 cap at 1.0) |
+
+### Step 4: Compute F-measure (ROUGE-W Score)
+
+$$
+F = \frac{2 \times P \times R}{P + R}
+$$
+
+$$
+F = \frac{2 \times 0.862 \times 1.0}{0.862 + 1.0} = 0.925
+$$
+
+✅ **ROUGE-W = 0.925 (or 92.5%)**
+
 ## 🧠 ROUGE-S?
 
 - **ROUGE-S** measures how well the **order and co-occurrence of words** in the generated text match the reference text by using something called **skip-bigrams**.  
