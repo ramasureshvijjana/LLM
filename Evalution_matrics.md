@@ -49,7 +49,7 @@ where β = 1 (equal weight to precision & recall)
 1. ROUGE-N
 2. ROUGE-L
 3. ROUGE-W
-4. ROUGE-S
+4. [ROUGE-S] (https://github.com/ramasureshvijjana/LLM/edit/master/Evalution_matrics.md#-rouge-s)
 5. ROUGE-Lsum
 
 ## ROUGE-N: 
@@ -106,6 +106,79 @@ F = \frac{2 \times 0.5714 \times 0.6667}{0.5714 + 0.6667} = 0.615
 $$
 
 ✅ **ROUGE-L = 0.615 (or 61.5%)**
+
+## 🧠 ROUGE-S?
+
+🔹 **ROUGE-S** measures how well the **order and co-occurrence of words** in the generated text match the reference text by using something called **skip-bigrams**.  
+
+🔹 **What’s a Skip-Bigram?** - **any pair of words that appear in the same order**, even if they’re not next to each other, is called **skip-bigram**.  
+
+🔹 It captures **word order** and **semantic similarity**, even if words in between skip-gram words.  
+
+
+## 📘 Example
+
+**🧾 Reference:**  `The cat sat on the mat` ;  **🤖 Generated:** `The cat is sitting on the mat`
+
+### Step 1: Create Skip-Bigrams
+
+**Reference skip-bigrams:** (The, cat), (The, sat), (The, on), (The, the), (The, mat),
+(cat, sat), (cat, on), (cat, the), (cat, mat),
+(sat, on), (sat, the), (sat, mat),
+(on, the), (on, mat),
+(the, mat)  
+✅ **15 skip-bigrams**
+
+**Generated skip-bigrams:** (The, cat), (The, is), (The, sitting), (The, on), (The, the), (The, mat),
+(cat, is), (cat, sitting), (cat, on), (cat, the), (cat, mat),
+(is, sitting), (is, on), (is, the), (is, mat),
+(sitting, on), (sitting, the), (sitting, mat),
+(on, the), (on, mat),
+(the, mat)  
+
+✅ **20 skip-bigrams**
+
+**Count Matches:** (The, cat), (The, on), (The, the), (The, mat),
+(cat, on), (cat, the), (cat, mat),
+(on, the), (on, mat), (the, mat)  
+
+✅ **10 matching skip-bigrams**
+
+### Step 2: Compute Recall and Precision
+
+| Formula | Meaning | Calculation |
+|----------|----------|-------------|
+| Precision (P) = matching / total in generated | 10 / 20 = **0.5** |
+| Recall (R) = matching / total in reference | 10 / 15 = **0.6667** |
+
+
+### Step 4: Compute F-measure (ROUGE-S Score)
+
+$$
+F = \frac{2 \times P \times R}{P + R}
+$$
+
+$$
+F = \frac{2 \times 0.5 \times 0.6667}{0.5 + 0.6667} = 0.5714
+$$
+
+✅ **ROUGE-S = 0.571 (or 57.1%)**
+
+---
+
+## 🧩 Summary
+
+| Metric | Meaning | Value |
+|---------|----------|-------|
+| Total skip-bigrams (ref) | Word pairs in reference | 15 |
+| Total skip-bigrams (gen) | Word pairs in output | 20 |
+| Matching skip-bigrams | Common pairs | 10 |
+| Recall | Portion of reference covered | 0.667 |
+| Precision | Portion of generated matches | 0.5 |
+| **ROUGE-S Score** | F1 of precision & recall | **0.571** |
+
+
+
 
 ---
 
