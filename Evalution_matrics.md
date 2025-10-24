@@ -210,6 +210,94 @@ $$
 
 ✅ **ROUGE-S = 0.571 (or 57.1%)**
 
+## 🧠 What is ROUGE-Lsum?
+
+**ROUGE-Lsum** (ROUGE-L for Summaries)  
+is a **sentence-level extension** of **ROUGE-L** — it measures how well the **generated summary** matches the **reference summary**,  
+by **averaging the ROUGE-L scores across all sentences**.
+
+✅ ROUGE-L → Compares one text vs. one reference  
+✅ **ROUGE-Lsum → Compares summaries sentence by sentence**
+
+---
+
+## 🧩 Why ROUGE-Lsum?
+
+It’s designed for **multi-sentence summaries** where:
+- Sentences can appear in different order  
+- Word overlap might occur across different parts  
+- You want a fair, overall similarity score
+
+So instead of treating the entire summary as one long string,  
+ROUGE-Lsum compares **each sentence in the generated summary** with **each sentence in the reference**,  
+and averages their **ROUGE-L** scores.
+
+---
+
+## 📘 Example
+
+**Reference summary:**
+> 1️⃣ The cat sat on the mat.  
+> 2️⃣ It was sunny outside.
+
+**Generated summary:**
+> 1️⃣ The cat is sitting on the mat.  
+> 2️⃣ The weather was bright and sunny.
+
+---
+
+### Step 1: Compute ROUGE-L for each pair
+
+**Sentence 1 comparison:**
+- Ref: “The cat sat on the mat”  
+- Gen: “The cat is sitting on the mat”  
+→ ROUGE-L ≈ **0.615** (from our earlier example)
+
+**Sentence 2 comparison:**
+- Ref: “It was sunny outside”  
+- Gen: “The weather was bright and sunny”  
+→ Common words: “was”, “sunny”  
+→ LCS = 2 words  
+→ Recall = 2/4 = 0.5  
+→ Precision = 2/5 = 0.4  
+→ F = (2 × 0.5 × 0.4) / (0.5 + 0.4) = **0.444**
+
+---
+
+### Step 2: Compute ROUGE-Lsum (average F1)
+
+\[
+\text{ROUGE-Lsum} = \frac{0.615 + 0.444}{2} = 0.5295
+\]
+
+✅ **ROUGE-Lsum = 0.53 (or 53%)**
+
+---
+
+## 🧩 Summary
+
+| Metric | Meaning | Value |
+|---------|----------|-------|
+| ROUGE-L (sentence 1) | First sentence match | 0.615 |
+| ROUGE-L (sentence 2) | Second sentence match | 0.444 |
+| **ROUGE-Lsum** | Average across sentences | **0.53** |
+
+---
+
+### 💡 In simple words:
+> **ROUGE-Lsum** evaluates summarization by checking  
+> how similar **each sentence in the generated summary** is to  
+> **each sentence in the reference summary**,  
+> then taking the **average** of their ROUGE-L scores.
+
+---
+
+### ✅ Formula Summary
+\[
+ROUGE\text{-}L_{sum} = \frac{1}{N} \sum_{i=1}^{N} ROUGE\text{-}L(\text{Ref}_i, \text{Gen}_i)
+\]
+where **N** = number of sentences in the summary.
+
 ---
 
 # 13.3 Perplexity
