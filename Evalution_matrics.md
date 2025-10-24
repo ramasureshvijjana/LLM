@@ -119,27 +119,25 @@ $$
 
 ### Step 1: Create Skip-Bigrams
 
-**Reference skip-bigrams:** (The, cat), (The, sat), (The, on), (The, the), (The, mat),
+- **Reference skip-bigrams:** (The, cat), (The, sat), (The, on), (The, the), (The, mat),
 (cat, sat), (cat, on), (cat, the), (cat, mat),
 (sat, on), (sat, the), (sat, mat),
 (on, the), (on, mat),
 (the, mat)  
-✅ **15 skip-bigrams**
+&nbsp;✅ **15 skip-bigrams**
 
-**Generated skip-bigrams:** (The, cat), (The, is), (The, sitting), (The, on), (The, the), (The, mat),
+- **Generated skip-bigrams:** (The, cat), (The, is), (The, sitting), (The, on), (The, the), (The, mat),
 (cat, is), (cat, sitting), (cat, on), (cat, the), (cat, mat),
 (is, sitting), (is, on), (is, the), (is, mat),
 (sitting, on), (sitting, the), (sitting, mat),
 (on, the), (on, mat),
 (the, mat)  
+&nbsp;✅ **20 skip-bigrams**
 
-✅ **20 skip-bigrams**
-
-**Count Matches:** (The, cat), (The, on), (The, the), (The, mat),
+- **Count Matches:** (The, cat), (The, on), (The, the), (The, mat),
 (cat, on), (cat, the), (cat, mat),
 (on, the), (on, mat), (the, mat)  
-
-✅ **10 matching skip-bigrams**
+&nbsp;✅ **10 matching skip-bigrams**
 
 ### Step 2: Compute Recall and Precision
 
