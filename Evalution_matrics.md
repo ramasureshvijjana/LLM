@@ -49,7 +49,7 @@ where β = 1 (equal weight to precision & recall)
 1. ROUGE-N
 2. ROUGE-L
 3. ROUGE-W
-4. [ROUGE-S] (https://github.com/ramasureshvijjana/LLM/edit/master/Evalution_matrics.md#-rouge-s)
+4. [ROUGE-S](https://github.com/ramasureshvijjana/LLM/edit/master/Evalution_matrics.md#-rouge-s)
 5. ROUGE-Lsum
 
 ## ROUGE-N: 
