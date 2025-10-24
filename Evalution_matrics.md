@@ -52,7 +52,7 @@ where β = 1 (equal weight to precision & recall)
 4. [ROUGE-S](https://github.com/ramasureshvijjana/LLM/blob/master/Evalution_matrics.md#-rouge-s)
 5. ROUGE-Lsum
 
-## ROUGE-N: 
+## 13.2.1 ROUGE-N: 
 - Measures n-gram overlap (e.g., ROUGE-1 for unigrams, ROUGE-2 for bigrams).
 
 ## 📘 Example: ROUGE-1
@@ -70,7 +70,7 @@ where β = 1 (equal weight to precision & recall)
 - **Recall** = Overlap / Reference = `4 / 6 = 0.67`  
 - **F1 Score** = Harmonic mean of precision and recall = `0.67`
 
-## 🧠 ROUGE-L:
+## 13.2..2 🧠 ROUGE-L:
 ✅ **L - (Longest Common Subsequence)**  
 ✅ measures how much the **generated text** overlaps with the **reference text** based on the **Longest Common Subsequence (LCS)**.  
 ✅ It focuses on the **order of words** (not just matching words).  
@@ -107,7 +107,7 @@ $$
 
 ✅ **ROUGE-L = 0.615 (or 61.5%)**
 
-## 🧠 ROUGE-W
+## 13.2.3 🧠 ROUGE-W
 
 **ROUGE-W (Weighted Longest Common Subsequence)**  is a **improved version of ROUGE-L** 
 
@@ -158,7 +158,7 @@ $$
 
 ✅ **ROUGE-W = 0.925 (or 92.5%)**
 
-## 🧠 ROUGE-S?
+## 13.2.4 🧠 ROUGE-S
 
 - **ROUGE-S** measures how well the **order and co-occurrence of words** in the generated text match the reference text by using something called **skip-bigrams**.  
 - **What’s a Skip-Bigram?** - **any pair of words that appear in the same order**, even if they’re not next to each other, is called **skip-bigram**.  
@@ -210,20 +210,17 @@ $$
 
 ✅ **ROUGE-S = 0.571 (or 57.1%)**
 
-## 🧠 What is ROUGE-Lsum?
+## 13.2..5 🧠ROUGE-Lsum
 
-**ROUGE-Lsum** (ROUGE-L for Summaries)  
-is a **sentence-level extension** of **ROUGE-L** — it measures how well the **generated summary** matches the **reference summary**,  
-by **averaging the ROUGE-L scores across all sentences**.
+- **ROUGE-Lsum** (ROUGE-L for Summaries)  
+- It is a **sentence-level extension** of **ROUGE-L** — it measures how well the **generated summary** matches the **reference summary**,  by **averaging the ROUGE-L scores across all sentences**.
 
 ✅ ROUGE-L → Compares one text vs. one reference  
 ✅ **ROUGE-Lsum → Compares summaries sentence by sentence**
 
----
-
 ## 🧩 Why ROUGE-Lsum?
 
-It’s designed for **multi-sentence summaries** where:
+- It’s designed for **multi-sentence summaries** where:
 - Sentences can appear in different order  
 - Word overlap might occur across different parts  
 - You want a fair, overall similarity score
@@ -243,8 +240,6 @@ and averages their **ROUGE-L** scores.
 **Generated summary:**
 > 1️⃣ The cat is sitting on the mat.  
 > 2️⃣ The weather was bright and sunny.
-
----
 
 ### Step 1: Compute ROUGE-L for each pair
 
@@ -266,13 +261,11 @@ and averages their **ROUGE-L** scores.
 
 ### Step 2: Compute ROUGE-Lsum (average F1)
 
-\[
+$$
 \text{ROUGE-Lsum} = \frac{0.615 + 0.444}{2} = 0.5295
-\]
+$$
 
 ✅ **ROUGE-Lsum = 0.53 (or 53%)**
-
----
 
 ## 🧩 Summary
 
@@ -282,20 +275,10 @@ and averages their **ROUGE-L** scores.
 | ROUGE-L (sentence 2) | Second sentence match | 0.444 |
 | **ROUGE-Lsum** | Average across sentences | **0.53** |
 
----
-
-### 💡 In simple words:
-> **ROUGE-Lsum** evaluates summarization by checking  
-> how similar **each sentence in the generated summary** is to  
-> **each sentence in the reference summary**,  
-> then taking the **average** of their ROUGE-L scores.
-
----
-
 ### ✅ Formula Summary
-\[
+$$
 ROUGE\text{-}L_{sum} = \frac{1}{N} \sum_{i=1}^{N} ROUGE\text{-}L(\text{Ref}_i, \text{Gen}_i)
-\]
+$$
 where **N** = number of sentences in the summary.
 
 ---
@@ -304,9 +287,8 @@ where **N** = number of sentences in the summary.
 
 ## What is Perplexity  
 
-Perplexity is an LLM evaluation metric that explains how confused a model is when predicting the next word in a sequence.
+- Perplexity is an LLM evaluation metric that explains how confused a model is when predicting the next word in a sequence.
 
----
 ## Perplexity Values
 
 - **Perplexity = 1** → The LLM is perfectly confident and makes no mistakes. It predicts the correct next word with 100% certainty.  
@@ -318,7 +300,6 @@ Perplexity is an LLM evaluation metric that explains how confused a model is whe
 👉 **Lower perplexity = better, more certain predictions**  
 👉 **Higher perplexity = more confused, less accurate predictions**
 
----
 ## Maths in Perplexity
 
 ### 📌 Step 1: Perplexity Formula  
@@ -371,10 +352,6 @@ Perplexity is:
 $$
 PP = 2^2 = 4
 $$
-
----
-
-
 
 $$
 BP = \exp \left( 1 - \frac{\text{Reference length}}{\text{Generated length}} \right)
