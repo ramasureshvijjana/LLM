@@ -1,5 +1,5 @@
 # ✨ **LoRA (Low-Rank Adaptation)**
-LoRA fine-tunes large models by **freezing the base model weights** and injecting **low-rank trainable weight** matrices.
+- LoRA fine-tunes large models by **freezing the base model weights** and injecting **low-rank trainable weight** matrices.
 - **Uses low-rank updates instead of updating full weights**
 
 ---
