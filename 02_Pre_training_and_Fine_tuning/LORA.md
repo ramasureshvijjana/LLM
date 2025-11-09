@@ -18,7 +18,7 @@ $$
 ## ✅ **Step-2: Matrix decomposition part (Low-Rank Trick 📐)**
 A high-rank matrix can be decomposed into two low-rank matrices, a 4 x 4 matrix can be decomposed into a 4 x 1 and a 1 x 4 matrix.
 
-![LORA_Matrix_decomposition]([image_url_or_path](https://github.com/ramasureshvijjana/LLM/blob/master/Images/Lora_Matrix_decomposition.png))
+<img src="../Images/Lora_Matrix_decomposition.png" alt="My Diagram" width="700"/>
 
 $$
 \Delta W = B A
