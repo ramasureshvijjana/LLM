@@ -7,22 +7,18 @@ LoRA fine-tunes large models by **freezing the base model weights** and injectin
 # ⚙️ **How It Works**
 
 ## ✅ **Step-1: Track all weight changes**
-Normally weight updates look like:
+- LoRA freezes **$W_0$** and **tracks the changes in the base model weights $W_0$** then **preserves** those changes in **ΔW**.
 
 $$
-W = W_0 + \Delta W
-$$
-
-LoRA freezes **$W_0$** and replaces the full update with a compact representation:
-
-$$
-\Delta W \text{ is represented as a low-rank matrix}
+\Delta W \text{ =  low-rank matrix}
 $$
 
 ---
 
 ## ✅ **Step-2: Matrix decomposition part (Low-Rank Trick 📐)**
-LoRA forces the update to be low-rank:
+A high-rank matrix can be decomposed into two low-rank matrices, a 4 x 4 matrix can be decomposed into a 4 x 1 and a 1 x 4 matrix.
+
+![LORA_Matrix_decomposition]([image_url_or_path](https://github.com/ramasureshvijjana/LLM/blob/master/Images/Lora_Matrix_decomposition.png))
 
 $$
 \Delta W = B A
@@ -30,8 +26,8 @@ $$
 
 Where:
 
-- $A \in \mathbb{R}^{r \times k}$
-- $B \in \mathbb{R}^{d \times r}$
+- $A \in \mathbb{R}^{d \times r}$ &nbsp;&nbsp; (d = 4 ; r = 1) &nbsp;&nbsp; -> Low rank matrix 1
+- $B \in \mathbb{R}^{r \times k}$ &nbsp;&nbsp; (r = 1 ; k = 4) &nbsp;&nbsp; -> Low rank matrix 2
 - **$r \ll \min(d, k)$** (tiny rank)
 
 This reduces parameters from:
@@ -40,7 +36,7 @@ $$
 d \times k \quad \text{to} \quad r(d + k)
 $$
 
-which is **much smaller** ✅
+r(d + k) is **much smaller** ✅
 
 ---
 
@@ -51,14 +47,8 @@ $$
 W_{\text{eff}} = W_0 + B A
 $$
 
-- **\(W_0\)** stays frozen  
-- Only **A** and **B** are trained  
-- Output is equivalent to a full fine-tune but far cheaper 🚀
+- **$W_0$** stays frozen  
+- Only **A** and **B** are trained low ranked matrices 
 
 ---
-
-### 🧩 Summary
-- **LoRA = Lightweight fine-tuning**
-
-- **Much faster, cheaper, and memory-efficient**
 
