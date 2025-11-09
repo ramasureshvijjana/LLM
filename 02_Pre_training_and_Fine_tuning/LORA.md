@@ -51,4 +51,8 @@ $$
 - Only **A** and **B** are trained low ranked matrices 
 
 ---
+## Key points for choosing LoRA rank:
+1. Simple tasks work well with rank 4 to 16.
+2. Small datasets need low rank to avoid overfitting.
+3. A quick sweep like 4, 8, 16, 32 helps you find the best rank.
 
