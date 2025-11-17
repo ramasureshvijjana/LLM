@@ -28,6 +28,19 @@ $$
 BP = \exp \left( 1 - \frac{\text{Reference length}}{\text{Generated length}} \right)
 $$
 
+### wᵢ = Weight for each n-gram
+-  **wᵢ = Weight for each n-gram**, Usually **equal weights** are used.  
+  In standard BLEU-4:
+
+  $$
+  w_i = \frac{1}{4} \quad \text{for } i = 1,2,3,4
+  $$
+
+✔ So, w₁ = w₂ = w₃ = w₄ = **0.25**
+
+**Meaning:**   
+  - Each n-gram precision contributes **equally (25%)** to the final BLEU score.
+
 ---
 # 13.2 ROUGE - (Recall-Oriented Understudy for Gisting Evaluation)
 
