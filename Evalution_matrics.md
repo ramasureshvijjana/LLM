@@ -173,7 +173,7 @@ $$
 
 ## 13.2.4 🧠 ROUGE-S
 
-- **ROUGE-S** measures how well the **order and co-occurrence of words** in the generated text match the reference text by using something called **skip-bigrams**.  
+- **ROUGE-S** measures how well the **order and co-occurrence of words** in the generated text matchs  the reference text by using **skip-bigrams**.  
 - **What’s a Skip-Bigram?** - **any pair of words that appear in the same order**, even if they’re not next to each other, is called **skip-bigram**.  
 - It captures **word order** and **semantic similarity**, even if words in between skip-gram words.  
 
