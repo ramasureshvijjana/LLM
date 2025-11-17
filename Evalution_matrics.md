@@ -242,8 +242,6 @@ So instead of treating the entire summary as one long string,
 ROUGE-Lsum compares **each sentence in the generated summary** with **each sentence in the reference**,  
 and averages their **ROUGE-L** scores.
 
----
-
 ## 📘 Example
 
 **Reference summary:**
@@ -270,8 +268,6 @@ and averages their **ROUGE-L** scores.
 → Precision = 2/5 = 0.4  
 → F = (2 × 0.5 × 0.4) / (0.5 + 0.4) = **0.444**
 
----
-
 ### Step 2: Compute ROUGE-Lsum (average F1)
 
 $$
@@ -291,7 +287,8 @@ $$
 ### ✅ Formula Summary
 $$
 ROUGE\text{-}L_{sum} = \frac{1}{N} \sum_{i=1}^{N} ROUGE\text{-}L(\text{Ref}_i, \text{Gen}_i)
-$$
+$$  
+
 where **N** = number of sentences in the summary.
 
 ---
