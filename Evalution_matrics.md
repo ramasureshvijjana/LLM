@@ -19,7 +19,7 @@ Where:
 - \( BP \) = **Brevity Penalty**  
   → Used to penalize **short sentences**  
 
-### **Brevity Penalty (BP)**
+## **Brevity Penalty (BP)**
 $$
 BP = 1 \quad \text{when generated length ≥ reference length}
 $$
@@ -28,7 +28,7 @@ $$
 BP = \exp \left( 1 - \frac{\text{Reference length}}{\text{Generated length}} \right)
 $$
 
-### wᵢ = Weight for each n-gram
+## wᵢ Weights
 -  **wᵢ = Weight for each n-gram**, Usually **equal weights** are used.  
   In standard BLEU-4:
 
